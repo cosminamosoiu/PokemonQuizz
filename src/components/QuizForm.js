@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./quizForm.css";
 import EndPage from "./EndPage";
 import Paper from "@mui/material/Paper";
+import { Link } from "react-router-dom";
 
 function QuizForm() {
   const [data, setData] = useState();
@@ -108,7 +109,9 @@ function QuizForm() {
           />
           {submitted ? (
             questionNumber === 10 ? (
-              <button onClick={() => handleSearch()}>End Game</button>
+              <Link to="/end">  
+                <button onClick={() => handleSearch()}>End Game</button>
+              </Link>
             ) : (
               <button
                 onClick={() => {
