@@ -1,0 +1,33 @@
+.quizForm {
+    background-image: url("https://i0.wp.com/www.alphr.com/wp-content/uploads/2016/07/whos_that_pokemon.png?fit=1920%2C1080&ssl=1");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 5%;
+    height: 40vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color:black;
+    font-size: larger;
+    font-weight:bolder ;
+}
+
+.infos {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+img {
+    margin-right: 300px;
+    width: 250px;
+    height: 250px;
+}
+
+.silhouette{
+    filter: contrast(0) sepia(100%) hue-rotate(50deg) saturate(100%) brightness(0) brightness(100%);
+}
