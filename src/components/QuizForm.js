@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./quizForm.css";
+import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button'
 
 function QuizForm() {
   const [data, setData] = useState(null);
   const [submitted, setSubmitted] = useState(false);
   const [questionNumber, setQuestionNumber] = useState(1);
-  const [pokemonNumber, setPokemonNumber] = useState();
+  const [pokemonNumber, setPokemonNumber] = useState(null);
 
   useEffect(() => {
     fetch('https://pokeapi.co/api/v2/pokemon?offset=0&&limit=150')
@@ -40,14 +42,26 @@ function QuizForm() {
     setPokemonNumber(randomNumber);
   }
 
+
+
   if(data != null) {
+    if(pokemonNumber === null){
+      randomNumber()
+    }
     return (    
-      <div className="quizForm">
+      <Paper elevation={3} variant="outlined">
+      <div className="container">
+       {submitted
+        ? <img src="/images/pokemonis.png" alt="who's that pokemon?" className="who-that-pokemon-image"/>
+        : <img src="/images/whosthatpoke.png" alt="who's that pokemon?" className="who-that-pokemon-image"/>
+       }
         <div className="infos">
           <p>Points: 0</p>
           <p>Question Number: {questionNumber}</p>
           <p>{pokemonNumber}</p>
-          <p>{data.results[pokemonNumber].name}</p>
+          <p>{pokemonNumber
+                ? data.results[parseInt(pokemonNumber - 1, 10)].name
+                : ''} </p>
         </div>
         {submitted
           ? <img src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokemonNumber}.png`}  alt="Real IMage"></img>
@@ -55,10 +69,11 @@ function QuizForm() {
         }
         <input></input>
         {submitted
-          ? <button onClick={()=>{questionCounter(); randomNumber();} }>Next</button>
-          : <button onClick={submitQuestion}>Submit</button>
+          ? <Button variant="contained" size="large" onClick={()=>{questionCounter(); randomNumber();} }>Next</Button>
+          : <Button variant="contained" size="large" onClick={submitQuestion}>Submit</Button>
         }
       </div>
+      </Paper>
     );
   } else {
     return (
