@@ -1,0 +1,50 @@
+.who-that-pokemon-image{
+    width:500px;
+    height:100px;
+}
+
+.infos {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 20px;
+    height:100px;
+    align-items: center;
+}
+
+img {
+    width: 250px;
+    height: 250px;
+}
+
+.silhouette{
+    filter: contrast(0) sepia(100%) hue-rotate(50deg) saturate(100%) brightness(0) brightness(100%);
+}
+
+input {
+    border: 2px solid blue;
+    border-radius: 4px;
+    margin-bottom:20px;
+    font-size: 20px;
+  }
+
+  .poke-name{
+      font-size: 50px;
+      width:250px;
+      text-align: center;
+  }
+
+  .loading{
+    font-size:50px;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    width: 500px;
+    height: 500px;
+    background-color: white;
+  }
+
+  .game-button{
+      margin:20px;
+        padding: 100px;
+    }

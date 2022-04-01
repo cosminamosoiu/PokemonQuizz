@@ -1,0 +1,23 @@
+.start-image{
+    width:556px;
+    height:412px;
+    margin-bottom:25px;
+}
+
+.container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 95vh;
+    width: 95vw;
+    position:relative;
+}
+
+.pickachiu{
+    position:absolute;
+    bottom: 0;
+    right: 0;
+    height:150px;
+    width:150px;
+}
