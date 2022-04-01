@@ -1,8 +1,13 @@
-import './App.css';
-import QuizForm from './components/QuizForm';
-import StartPage from './components/StartPage';
-import EndPage from './components/EndPage';
+import "./App.css";
+import QuizForm from "./components/QuizForm";
+import StartPage from "./components/StartPage";
+import EndPage from "./components/EndPage";
 import { useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Routes as Switch,
+  Route,
+} from "react-router-dom";
 
 
 function App() {
@@ -13,9 +18,13 @@ function App() {
 console.log(totalPoints);
   return (
     <>
-      {/* <QuizForm setTotalPoints={setTotalPoints} /> */}
-      {/* <StartPage /> */}
-      <EndPage totalPoints={totalPoints}/>
+      <Router>
+        <Switch>
+          <Route path="/" element={<StartPage />} />
+          <Route path="/quiz" element={<QuizForm />} />
+          <Route path="/end" element={<EndPage />} />
+        </Switch>
+      </Router>
     </>
   );
 }
