@@ -75,6 +75,7 @@ function QuizForm() {
             />
           )}
           <div className="infos">
+            <TextField label="Pokemon Name" color="secondary" focused />
             <p>Question Number: {questionNumber}</p>
             <p>Your points: {points}</p>
             <p>{pokemonNumber}</p>
