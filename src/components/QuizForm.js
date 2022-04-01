@@ -3,13 +3,14 @@ import "../styles/quizForm.css";
 import Paper from "@mui/material/Paper";
 import Button from '@mui/material/Button'
 
-function QuizForm() {
+function QuizForm(props) {
   const [data, setData] = useState();
   const [submitted, setSubmitted] = useState(false);
   const [questionNumber, setQuestionNumber] = useState(1);
   const [pokemonNumber, setPokemonNumber] = useState(null);
   const [inputValue, setInputValue] = useState("");
   const [points, setPoints] = useState(0);
+  const handleSetTotalPoints = () => props.setTotalPoints(points);
 
   useEffect(async () => {
     await fetch("https://pokeapi.co/api/v2/pokemon?offset=0&&limit=150")
@@ -116,7 +117,7 @@ function QuizForm() {
           />
           {submitted ? (
             questionNumber === 10 ? (
-              <Button className="game-button" variant="contained" size="large" onClick={() => handleSearch()} 
+              <Button className="game-button" variant="contained" size="large" onClick={() => { handleSearch(); handleSetTotalPoints(); }  } 
               sx={{
                 width: '200px',
                 marginTop: '20px',

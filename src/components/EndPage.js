@@ -3,12 +3,12 @@ import "../styles/endPage.css"
 import Button from '@mui/material/Button'
 import Paper from '@mui/material/Paper';
 
-function EndPage() {
+function EndPage(props) {
   return (
     <Paper elevation={3}>
     <div className="container">
             <img className="good-job" src="/images/goodjob.png"/>
-            <div className="end-points">50 points</div>
+            <div className="end-points">{props.totalPoints} points</div>
             <Button variant="contained" size="large"
             sx={{
                 width: '200px',
