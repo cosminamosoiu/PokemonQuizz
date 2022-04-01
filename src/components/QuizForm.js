@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "../styles/quizForm.css";
 import Paper from "@mui/material/Paper";
-<<<<<<< HEAD
 import Button from '@mui/material/Button'
-=======
 import { Link } from "react-router-dom";
->>>>>>> dani
+
 
 function QuizForm(props) {
   const [data, setData] = useState();
@@ -121,17 +119,15 @@ function QuizForm(props) {
           />
           {submitted ? (
             questionNumber === 10 ? (
-<<<<<<< HEAD
-              <Button className="game-button" variant="contained" size="large" onClick={() => { handleSearch(); handleSetTotalPoints(); }  } 
+
+              <Link to="/end">  
+                <Button className="game-button" variant="contained" size="large" onClick={() => { handleSearch(); handleSetTotalPoints(); }  } 
               sx={{
                 width: '200px',
                 marginTop: '20px',
               }}>End Game</Button>
-=======
-              <Link to="/end">  
-                <button onClick={() => handleSearch()}>End Game</button>
               </Link>
->>>>>>> dani
+
             ) : (
               <Button className="game-button" variant="contained" size="large"
                 onClick={() => {

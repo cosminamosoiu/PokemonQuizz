@@ -10,7 +10,7 @@ function StartPage() {
     <Paper elevation={3}>
     <div className="container">
 
-        <img className="start-image" src="/images/whothatlogo2.png" alt="Who's that" />
+        <img className="start-image" src="/images/whothatlogo.png" alt="Who's that" />
         <Link to="/quiz">
         <Button variant="contained" size="large"
         sx={{

@@ -13,16 +13,17 @@ import {
 function App() {
 
   const [totalPoints, setTotalPoints] = useState(0);
-
+  
 
 console.log(totalPoints);
   return (
     <>
+
       <Router>
         <Switch>
           <Route path="/" element={<StartPage />} />
-          <Route path="/quiz" element={<QuizForm />} />
-          <Route path="/end" element={<EndPage />} />
+          <Route path="/quiz" element={<QuizForm setTotalPoints={setTotalPoints}/>} />
+          <Route path="/end" element={<EndPage totalPoints={totalPoints}/>} />
         </Switch>
       </Router>
     </>
