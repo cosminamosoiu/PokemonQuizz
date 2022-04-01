@@ -6,13 +6,11 @@ import Paper from '@mui/material/Paper';
 
 function EndPage() {
   return (
-    <Paper elevation={3} variant="outlined">
+    <Paper elevation={3}>
     <div className="container">
             <img className="good-job" src="/images/goodjob.png"/>
             <div className="end-points">50 points</div>
-            <Button variant="contained" size="large"> Play again!</Button>
-        <img className="final-picachiu" src="/images/pikahat.png"/>
-        
+            <Button variant="contained" size="large"> Play again!</Button>        
     </div>
     </Paper>
   )

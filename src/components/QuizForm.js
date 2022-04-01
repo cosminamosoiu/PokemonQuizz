@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./quizForm.css";
-import EndPage from "./EndPage";
 import Paper from "@mui/material/Paper";
+import Button from '@mui/material/Button'
 
 function QuizForm() {
   const [data, setData] = useState();
@@ -52,13 +52,17 @@ function QuizForm() {
     }
   };
 
+  function capitalizeFirstLetter(str) {
+    return(str.charAt(0).toUpperCase() + str.slice(1));
+  }
+
   if (data != null) {
     if (pokemonNumber === null) {
       randomNumber();
     }
 
     return (
-      <Paper elevation={3} variant="outlined">
+      <Paper elevation={3}>
         <div className="container">
           {submitted ? (
             <img
@@ -74,9 +78,16 @@ function QuizForm() {
             />
           )}
           <div className="infos">
-            <p>Question Number: {questionNumber}</p>
-            <p>Your points: {points}</p>
-            <p>{pokemonNumber}</p>
+            <p>Question Number: {questionNumber} / 10</p>
+            {submitted ? (
+              <p className="poke-name">{capitalizeFirstLetter(data.results[parseInt(pokemonNumber - 1, 10)].name)}
+            </p>
+            ) : (
+              <p  className="poke-name" > </p>
+            ) 
+            
+            }
+            <p>Your score is: {points} points</p>
           </div>
 
           {submitted ? (
@@ -85,11 +96,7 @@ function QuizForm() {
                 src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokemonNumber}.png`}
                 alt="Real IMage"
               ></img>
-              <p>
-                {pokemonNumber
-                  ? data.results[parseInt(pokemonNumber - 1, 10)].name
-                  : ""}
-              </p>
+              
             </div>
           ) : (
             <div className="silhouette">
@@ -97,6 +104,7 @@ function QuizForm() {
                 src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokemonNumber}.png`}
                 alt="Silhouette"
               ></img>
+              
             </div>
           )}
           <input
@@ -108,9 +116,9 @@ function QuizForm() {
           />
           {submitted ? (
             questionNumber === 10 ? (
-              <button onClick={() => handleSearch()}>End Game</button>
+              <Button className="game-button" variant="contained" size="large" onClick={() => handleSearch()}>End Game</Button>
             ) : (
-              <button
+              <Button className="game-button" variant="contained" size="large"
                 onClick={() => {
                   questionCounter();
                   randomNumber();
@@ -118,18 +126,26 @@ function QuizForm() {
                 }}
               >
                 Next
-              </button>
+              </Button>
             )
           ) : (
-            <button onClick={submitQuestion}>Submit</button>
+            <Button className="game-button" variant="contained" size="large" onClick={submitQuestion}>Submit</Button>
           )}
          
         </div>
       </Paper>
     );
   } else {
-    return <h1>Loading</h1>;
-  }
+    return (
+      <div className='loading'>
+       <h1>Loading</h1>
+        <img 
+              src="/images/pokeball.png"
+              alt="loading"
+              className="pokeball"
+            />
+       </div>
+    )}
 }
 
 export default QuizForm;

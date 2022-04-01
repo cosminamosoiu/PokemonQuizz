@@ -7,7 +7,7 @@ import Paper from '@mui/material/Paper';
 function StartPage() {
   return (
 <>
-    <Paper elevation={3} variant="outlined">
+    <Paper elevation={3}>
     <div className="container">
         <img className="start-image" src="/images/whothatlogo2.png" alt="Who's that" />
         <Button variant="contained" size="large">
