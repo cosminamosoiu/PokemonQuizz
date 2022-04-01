@@ -51,69 +51,80 @@ function QuizForm() {
     }
   };
 
-  if (data != null) {
-    if (pokemonNumber === null) {
-      randomNumber();
-    }
+    const clearInput = () => {
+      setInputValue('');
+    };
 
-    return (
-      <div className='quizForm'>
-        <div className='infos'>
-          <p>Question Number: {questionNumber}</p>
-          <p>Your points: {points}</p>
-          <p>{pokemonNumber}</p>
-        </div>
+    if (data != null) {
+      if (pokemonNumber === null) {
+        randomNumber();
+      }
 
-        {submitted ? (
-          <div>
-            <img
-              src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokemonNumber}.png`}
-              alt='Real IMage'
-            ></img>
-            <p>
-              {pokemonNumber
-                ? data.results[parseInt(pokemonNumber - 1, 10)].name
-                : ''}
-            </p>
+      return (
+        <div className='quizForm'>
+          <div className='infos'>
+            <p>Question Number: {questionNumber}</p>
+            <p>Your points: {points}</p>
+            <p>{pokemonNumber}</p>
           </div>
-        ) : (
-          <div className='silhouette'>
-            <img
-              src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokemonNumber}.png`}
-              alt='Silhouette'
-            ></img>
-          </div>
-        )}
-        <input
-          placeholder='Insert aswear'
-          value={inputValue}
-          onChange={e => {
-            setInputValue(e.target.value);
-          }}
-        />
-        {submitted ? (
-          questionNumber === 10 ? (
-            <button onClick={() => handleSearch()}>End Game</button>
+
+          {submitted ? (
+            <div>
+              <img
+                src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokemonNumber}.png`}
+                alt='Real IMage'
+              ></img>
+              <p>
+                {pokemonNumber
+                  ? data.results[parseInt(pokemonNumber - 1, 10)].name
+                  : ''}
+              </p>
+            </div>
+          ) : (
+            <div className='silhouette'>
+              <img
+                src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokemonNumber}.png`}
+                alt='Silhouette'
+              ></img>
+            </div>
+          )}
+          <input
+            placeholder='Insert aswear'
+            value={inputValue}
+            onChange={e => {
+              setInputValue(e.target.value);
+            }}
+          />
+          {submitted ? (
+            questionNumber === 10 ? (
+              <button>End Game</button>
+            ) : (
+              <button
+                onClick={() => {
+                  questionCounter();
+                  randomNumber();
+                  clearInput();
+                }}
+              >
+                Next
+              </button>
+            )
           ) : (
             <button
               onClick={() => {
-                questionCounter();
-                randomNumber();
+                submitQuestion();
                 handleSearch();
               }}
             >
-              Next
+              Submit
             </button>
-          )
-        ) : (
-          <button onClick={submitQuestion}>Submit</button>
-        )}
-        <EndPage points={points} />
-      </div>
-    );
-  } else {
-    return <h1>Loading</h1>;
-  }
+          )}
+          <EndPage points={points} />
+        </div>
+      );
+    } else {
+      return <h1>Loading</h1>;
+    }
 }
 
 
