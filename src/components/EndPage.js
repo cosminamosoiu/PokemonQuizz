@@ -1,7 +1,6 @@
 import React from 'react'
-import "./endPage.css"
+import "../styles/endPage.css"
 import Button from '@mui/material/Button'
-import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 
 function EndPage() {
@@ -10,7 +9,11 @@ function EndPage() {
     <div className="container">
             <img className="good-job" src="/images/goodjob.png"/>
             <div className="end-points">50 points</div>
-            <Button variant="contained" size="large"> Play again!</Button>        
+            <Button variant="contained" size="large"
+            sx={{
+                width: '200px',
+                marginTop: '20px',
+              }}> Play again!</Button>        
     </div>
     </Paper>
   )

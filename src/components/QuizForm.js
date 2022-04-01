@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./quizForm.css";
+import "../styles/quizForm.css";
 import Paper from "@mui/material/Paper";
 import Button from '@mui/material/Button'
 
@@ -116,7 +116,11 @@ function QuizForm() {
           />
           {submitted ? (
             questionNumber === 10 ? (
-              <Button className="game-button" variant="contained" size="large" onClick={() => handleSearch()}>End Game</Button>
+              <Button className="game-button" variant="contained" size="large" onClick={() => handleSearch()} 
+              sx={{
+                width: '200px',
+                marginTop: '20px',
+              }}>End Game</Button>
             ) : (
               <Button className="game-button" variant="contained" size="large"
                 onClick={() => {
@@ -124,12 +128,19 @@ function QuizForm() {
                   randomNumber();
                   handleSearch();
                 }}
-              >
+                sx={{
+                  width: '200px',
+                  marginTop: '20px',
+                }}>
                 Next
               </Button>
             )
           ) : (
-            <Button className="game-button" variant="contained" size="large" onClick={submitQuestion}>Submit</Button>
+            <Button className="game-button" variant="contained" size="large" onClick={submitQuestion}
+            sx={{
+              width: '200px',
+              marginTop: '20px',
+            }}>Guess</Button>
           )}
          
         </div>
