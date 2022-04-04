@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-import './App.css';
-
-import QuizForm from './components/QuizForm';
-import StartPage from './components/StartPage';
-=======
 import "./App.css";
 import QuizForm from "./components/QuizForm";
 import StartPage from "./components/StartPage";
@@ -14,7 +8,6 @@ import {
   Routes as Switch,
   Route,
 } from "react-router-dom";
->>>>>>> 7a4981185a16f1529bc49d1d2b09d190aab317a6
 
 
 function App() {

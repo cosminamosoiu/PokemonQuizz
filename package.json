@@ -10,17 +10,10 @@
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
-<<<<<<< HEAD
-    "axios": "^0.26.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-router": "^6.2.2",
-=======
     "framer-motion": "^6.2.8",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.2.2",
->>>>>>> 7a4981185a16f1529bc49d1d2b09d190aab317a6
     "react-scripts": "5.0.0",
     "web-vitals": "^2.1.4"
   },

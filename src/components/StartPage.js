@@ -6,13 +6,6 @@ import { Link } from 'react-router-dom';
 
 function StartPage() {
   return (
-<<<<<<< HEAD
-    <div>
-      <p>StartPage</p>
-      <button>Start quiz</button>
-    </div>
-  );
-=======
 <>
     <Paper elevation={3}>
     <div className="container">
@@ -32,7 +25,6 @@ function StartPage() {
     </Paper>
    </> 
   )
->>>>>>> 7a4981185a16f1529bc49d1d2b09d190aab317a6
 }
 
 export default StartPage
